@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>to-do</title>
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+  <!-- header section starts -->
+  <header class="header">
+
+    <div class="header__user">
+      <img class="user__img" src="images/happy.png" alt="">
+      <h3 class="user__name">???</h3>
+      <p class="user__dream">????</p>
+    </div>
+
+    <h3 id="clock">00:00:00</h3>
+  </header>
+
+  <!-- header section ends -->
+
+  <!-- login form starts -->
+  <div class="login">
+    <form id="login__form" class="login__form">
+      <input required maxlength="15" type="text" placeholder="What is your name?" class="login__input input--name">
+      <input required maxlength="20" type="text" placeholder="What's your dream" class="login__input input--dream">
+      <button type="submit" class="fas fa-sign-in-alt login__label"></button>
+    </form>
+  </div>
+  <!-- login form ends -->
+
+
+  <!-- content section starts -->
+  <div class="container">
+
+    <!-- home section -->
+    <section class="container__home" id="home">
+      <h3>welcome</h3>
+      <h3 class="home__name"><span>???</span></h3>
+      <h4 class="home__dream">"dreams come true"
+        <br>
+        <span class="home__post--typing-text"></span>
+      </h4>
+    </section>
+
+    <!-- feeling section -->
+    <section class="container__feeling">
+      <h1 class="heading">today's feeling</h1>
+      <div class="feeling__faces">
+        <div class="faces__container">
+          <img src="images/happy.png" alt="">
+        </div>
+        <div class="faces__container">
+          <img src="images/fighting.png" alt="">
+        </div>
+        <div class="faces__container">
+          <img src="images/good.png" alt="">
+        </div>
+        <div class="faces__container">
+          <img src="images/bad.png" alt="">
+        </div>
+        <div class="faces__container">
+          <img src="images/surprise.png" alt="">
+        </div>
+        <div class="faces__container">
+          <img src="images/thinking.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- todo section -->
+    <section class="container__todo">
+      <h1 class="heading">today's todos</h1>
+      <form id="todo-form">
+        <input type="text" placeholder="Write a To Do and Press Enter" required>
+      </form>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <!-- weather section -->
+    <section class="container__weather" id="weather">
+      <h1 class="heading">today's weather</h1>
+      <span></span> <br>
+      <span></span>
+    </section>
+
+    <!-- quote section -->
+    <section class="container__quote" id="quote">
+      <span></span> <br>
+      -<span></span>-
+    </section>
+
+  </div>
+  <!-- content section ends -->
+
+  <!-- theme toggler -->
+  <div class="theme-toggler">
+
+    <span style="background: linear-gradient(rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);"></span>
+    <span style="background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);"></span>
+    <span style="background: linear-gradient(180deg, rgba(93,215,171,1) 0%, rgba(215,69,99,1) 100%);"></span>
+    <span
+      style="background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 50%, rgba(253,29,29,1) 100%);"></span>
+    <span style="background: linear-gradient(70deg,#e0e41b, #e243d5, #77d897);"></span>
+
+  </div>
+
+  <!-- type.js cdn link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="js/login.js" type="text/javascript"></script>
+  <script src="js/clock.js" type="text/javascript"></script>
+  <script src="js/todo.js" type="text/javascript"></script>
+  <script src="js/weather.js" type="text/javascript"></script>
+  <script src="js/quotes.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    /* theme color 정하기 */
+    let themeColor = document.querySelectorAll(".theme-toggler span");
+    themeColor.forEach(function (color) {
+      color.addEventListener('click', () => {
+        let background = color.style.background;
+        localStorage.setItem('background', background);
+        document.querySelector("body").style.background = background;
+      })
+      document.querySelector("body").style.background = localStorage.getItem('background');
+    });
+  </script>
+</body>
+
+</html>
